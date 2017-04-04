@@ -14,7 +14,7 @@
   for ($j = 0 ; $j < $rows ; ++$j)
   {
     $result->data_seek($j);
-	$row = $result->fetch_array(MYSQLI_ASSOC);
+	 $row = $result->fetch_array(MYSQLI_ASSOC);
 
     echo 'Author: '   . $row['author']   . '<br>';
     echo 'Title: '    . $row['title']    . '<br>';
