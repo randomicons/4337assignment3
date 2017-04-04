@@ -25,10 +25,10 @@
 
         if ($token == $col[1]) {
         	if (preg_match('/^admin/',$un_temp))
-        		echo "admin";
+        		 header( 'Location: admin.php' ) ;
         	else
         		echo "user";
-        	
+
         	echo <<<_END
   			$col[0], you are logged in.
 			<form action="authenticate.php" method="post">
@@ -54,8 +54,12 @@ _END;
   }
 
   if(isset($_POST["logoff"])) {
-  	echo 'logging off';
-  	resetlogin();
+  	if(!isset($_SESSION['indicator'])) {
+  		echo 'logging off';
+  		 $_SESSION['indicator'] = "processed"; 
+  		resetlogin();
+ 	 }
+ 	 unset($_SESSION['indicator']);
   } 
 
   $connection->close();
