@@ -44,7 +44,7 @@
     global $connection;
 
     $query  = "INSERT INTO users VALUES('$un', '$pw')
-                 ON DUPLICATE KEY UPDATE username=username;";
+                 ON DUPLICATE KEY UPDATE password='$pw';";
     $result = $connection->query($query);
     if (!$result) die($connection->error);
   }
