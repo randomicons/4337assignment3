@@ -1,8 +1,10 @@
 <?php // admin.php
   require_once 'login.php';
   require_once 'setupusers.php';
-  if (!isset($_SERVER['PHP_AUTH_USER']) &&
-      !isset($_SERVER['PHP_AUTH_PW'])) {
+  if (!isset($_SERVER['PHP_AUTH_USER']) ||
+      !isset($_SERVER['PHP_AUTH_PW']) ||
+      !preg_match('/^admin/',$_SERVER['PHP_AUTH_USER'])) {
+
      header( 'Location: authenticate.php' ) ;
   }
   $connection = new mysqli($db_hostname, $db_username, $db_password, $db_database);

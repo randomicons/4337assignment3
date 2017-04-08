@@ -17,7 +17,6 @@
 				 		category='$category',
 				 		year='$year'
 				 	WHERE isbn='$isbn'";
-		echo "<script type='text/javascript'>alert(lakj);</script>";
 		$result   = $connection->query($query);
 
 		if (!$result) echo "INSERT failed: $query<br>" .
