@@ -1,6 +1,10 @@
 <?php // users_books.php
   require_once 'login.php';
   require_once 'setupusers.php';
+  if (!isset($_SERVER['PHP_AUTH_USER']) &&
+      !isset($_SERVER['PHP_AUTH_PW'])) {
+     header( 'Location: authenticate.php' ) ;
+  }
 
   $connection = new mysqli($db_hostname, $db_username, $db_password, $db_database);
   
@@ -88,6 +92,10 @@ _END;
   <input type="hidden" name="delete" value="yes">
   <input type="hidden" name="isbn" value="$row[4]">
   <input type="submit" value="DELETE RECORD"></form>
+
+   <form action="updatebooks.php" method="post">
+   <input type="hidden" name="isbn" value="$row[4]">
+  <input type="submit" value="UPDATE RECORD"></form>
 _END;
   }
   

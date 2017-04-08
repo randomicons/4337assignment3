@@ -27,7 +27,7 @@
         	if (preg_match('/^admin/',$un_temp))
         		 header( 'Location: admin.php' ) ;
         	else
-        		echo "user";
+        		header( 'Location: users_books.php' );
 
         	echo <<<_END
   			$col[0], you are logged in.
